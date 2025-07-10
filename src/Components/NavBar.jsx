@@ -7,8 +7,8 @@ const NavBar = () => {
         <Container>
           <Navbar.Brand href="#home">
             <img
-              alt=""
-              src="public/images/logo_fastaFood.png"
+              alt="logo fastaFood"
+              src="/images/logo_fastaFood.png"
               width="100"
               height="100"
               className="d-inline-block align-top"

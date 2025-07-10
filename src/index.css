@@ -10,3 +10,15 @@ body {
 .navbar-orange {
   background-color: #8d2915;
 }
+
+.btn-orange {
+  background-color: #DF9328;
+  border-color: #DF9328;
+  color: #fff;
+}
+
+.btn-orange:hover {
+  background-color: #c87520;
+  border-color: #c87520;
+}
+
