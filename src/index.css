@@ -1,0 +1,12 @@
+/* ✅ Reset de base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  background: #f3dfb7
+  
+}
+
+.navbar-orange {
+  background-color: #8d2915;
+}
