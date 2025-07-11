@@ -14,8 +14,10 @@ const PageAccueil = () => {
       const reponse = await connexion(donneesEmploye);
       localStorage.setItem("token", reponse.data.token);
       alert("Connexion OK");
+
+      location.reload()
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error("erreur connexion:", error);
       alert("Connexion Refusée.");
     }
   };

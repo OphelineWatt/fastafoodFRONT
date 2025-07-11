@@ -1,6 +1,11 @@
+import { jwtDecode } from "jwt-decode";
 import { Navbar, Container, Nav} from "react-bootstrap";
 
 const NavBar = () => {
+    const token = localStorage.getItem("token");
+    const decodeToken = jwtDecode(token);
+    const roleId = decodeToken.roleId;
+    
     return (<Navbar className="navbar-orange" variant="dark" sticky="top">
         <Container>
           <Navbar.Brand href="/" className="d-flex align-items-center">
@@ -13,7 +18,10 @@ const NavBar = () => {
             />{' '}
           </Navbar.Brand>
                     <Nav className="me-auto">
-            <Nav.Link href="/employes">Les employés</Nav.Link>
+                  {(roleId === 1 || roleId === 2) && (
+        <Nav.Link href="/employes">Employés</Nav.Link>
+      )}
+
           </Nav>
         </Container>
       </Navbar>

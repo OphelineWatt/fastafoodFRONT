@@ -23,21 +23,36 @@ body {
 }
 
 .table-personnalisee {
+  text-align: center;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 8px rgba(141, 41, 21, 0.2);
-  margin-top: 30px;
-  border-color: #c18a5c !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
 }
-th{
-   background-color: #e2b97f !important;
-  color: #fff;
 
+.table-personnalisee thead th {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background-color: #df9328 !important;
+  color: white;
+  padding: 12px;
 }
- td{
-background-color: #f7ead0 !important;
 
- }
+.table-personnalisee tbody td {
+  padding: 10px;
+  vertical-align: middle;
+  background-color: #f9e5c8 !important;
+}
+
+.table-personnalisee tbody tr:hover {
+  background-color: #f9e5c8 !important;
+  transition: background-color 0.3s ease;
+}
+
+
 
 .btn-poubelle {
   font-weight: bold;
@@ -49,9 +64,28 @@ background-color: #f7ead0 !important;
     padding: 2px 8px;
 }
 
-/* @media (max-width: 768px) {
-  .table-personnalisee {
-    font-size: 0.85rem;
+/* tableau responsive */
+@media (max-width: 768px) {
+  .table-personnalisee thead {
+    display: none;
   }
-} */
+
+  .table-personnalisee tbody td {
+    display: block;
+    text-align: center;
+    
+    position: relative;
+  }
+
+  .table-personnalisee tbody td::before {
+    
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
 

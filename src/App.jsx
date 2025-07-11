@@ -2,6 +2,8 @@ import { Route, BrowserRouter as Router, Routes} from 'react-router-dom'
 import NavBar from './Components/NavBar'
 import PageAccueil from './Pages/PageAccueil'
 import PageEmployes from './Pages/PageEmployes'
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function App() {
   return (

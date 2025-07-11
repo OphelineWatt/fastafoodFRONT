@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import { suppressionEmploye } from "../services/employeService";
 import MajModal from "./MajModal";
 
+
 const TableauEmployes = ({ donnees }) => {
   const token = localStorage.getItem("token");
   const decodeToken = jwtDecode(token);
@@ -40,10 +41,7 @@ const TableauEmployes = ({ donnees }) => {
   return <>
 
     <Table
-  responsive
-  hover
-  size="sm"
-  className="table-personnalisee"
+responsive striped bordered hover className="table-personnalisee"
 >
   <thead>
     <tr style={{ backgroundColor: "#DF9328", color: "#fff" }}>
@@ -51,35 +49,42 @@ const TableauEmployes = ({ donnees }) => {
       <th>Nom</th>
       <th>Prénom</th>
       <th>Email</th>
+      {/* tu as accès uniquement quand tu es admin  */}
       {roleId === 1 && <th>Gestion</th>}
     </tr>
   </thead>
   <tbody>
     {donnees.map((employe, index) => (
       <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#FCEED6" : "#FFF5E8" }}>
-        <td>{employe.libelle}</td>
-        <td>{employe.nom}</td>
-        <td>{employe.prenom}</td>
-        <td>{employe.email}</td>
+ <td data-label="Rôle">{employe.libelle}</td>
+<td data-label="Nom">{employe.nom}</td>
+<td data-label="Prénom">{employe.prenom}</td>
+<td data-label="Email">{employe.email}</td>
+
         {roleId === 1 && (
-          <td>
-            <Button
-              variant="outline-danger"
-              size="sm"
-              onClick={() => gestionSuppression(employe.idEmploye)}
-              className="btn-poubelle"
-            >
-              🗑 Supprimer
-            </Button>
-            <Button
-  variant="outline-secondary"
-  size="sm"
-  onClick={() => gestionOuvertureModal(employe)}
-  className="btn-modifier"
->
-  ✏️ Modifier
-</Button>
-          </td>
+<td>
+<div className="d-flex justify-content-center gap-2">
+  <Button
+    variant="outline-danger"
+    size="sm"
+    onClick={() => gestionSuppression(employe.idEmploye)}
+    className="btn-poubelle d-flex align-items-center gap-1"
+  >
+    <i className="bi bi-trash"></i> Supprimer
+  </Button>
+
+  <Button
+    variant="outline-secondary"
+    size="sm"
+    onClick={() => gestionOuvertureModal(employe)}
+    className="btn-modifier d-flex align-items-center gap-1"
+  >
+    <i className="bi bi-pencil"></i> Modifier
+  </Button>
+</div>
+
+</td>
+
         )}
       </tr>
     ))}
