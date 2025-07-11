@@ -1,11 +1,9 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import { Navbar, Container, Nav} from "react-bootstrap";
 
 const NavBar = () => {
-    return (<Navbar className="navbar-orange" variant="dark"
->
+    return (<Navbar className="navbar-orange" variant="dark" sticky="top">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/" className="d-flex align-items-center">
             <img
               alt="logo fastaFood"
               src="/images/logo_fastaFood.png"
@@ -13,8 +11,10 @@ const NavBar = () => {
               height="100"
               className="d-inline-block align-top"
             />{' '}
-            Fasta Food
           </Navbar.Brand>
+                    <Nav className="me-auto">
+            <Nav.Link href="/employes">Les employés</Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
   );

@@ -3,8 +3,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
-  background: #f3dfb7
-  
+  background: #f3dfb7;
+  color: #8d2915;
 }
 
 .navbar-orange {
@@ -21,4 +21,37 @@ body {
   background-color: #c87520;
   border-color: #c87520;
 }
+
+.table-personnalisee {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(141, 41, 21, 0.2);
+  margin-top: 30px;
+  border-color: #c18a5c !important;
+}
+th{
+   background-color: #e2b97f !important;
+  color: #fff;
+
+}
+ td{
+background-color: #f7ead0 !important;
+
+ }
+
+.btn-poubelle {
+  font-weight: bold;
+  padding: 4px 10px;
+}
+
+
+.btn-poubelle {
+    padding: 2px 8px;
+}
+
+/* @media (max-width: 768px) {
+  .table-personnalisee {
+    font-size: 0.85rem;
+  }
+} */
 
