@@ -21,6 +21,7 @@ const NavBar = () => {
                   {(roleId === 1 || roleId === 2) && (
         <Nav.Link href="/employes">Employés</Nav.Link>
       )}
+      <Nav.Link href="/stocks">Stocks</Nav.Link>
       <Nav.Link href="/produits">Produits</Nav.Link>
           </Nav>
         </Container>
