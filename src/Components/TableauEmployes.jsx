@@ -56,10 +56,10 @@ responsive striped bordered hover className="table-personnalisee"
   <tbody>
     {donnees.map((employe, index) => (
       <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#FCEED6" : "#FFF5E8" }}>
- <td data-label="Rôle">{employe.libelle}</td>
-<td data-label="Nom">{employe.nom}</td>
-<td data-label="Prénom">{employe.prenom}</td>
-<td data-label="Email">{employe.email}</td>
+ <td>{employe.libelle}</td>
+<td >{employe.nom}</td>
+<td >{employe.prenom}</td>
+<td >{employe.email}</td>
 
         {roleId === 1 && (
 <td>
@@ -79,7 +79,7 @@ responsive striped bordered hover className="table-personnalisee"
     onClick={() => gestionOuvertureModal(employe)}
     className="btn-modifier d-flex align-items-center gap-1"
   >
-    <i className="bi bi-pencil"></i> Modifier
+    <i className="bi bi-pencil-square"></i> Modifier 
   </Button>
 </div>
 
