@@ -1,4 +1,3 @@
-import { enregistrement, roles } from "../services/employeService";
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { categories } from "../services/produitService";
@@ -16,18 +15,27 @@ const AjoutProduitModal = ({ show, onHide, onUpdated }) => {
 
   const [donneesCategories, setDonneesCategories] = useState([]);
 
-  const gestionAjout = async (e) => {
-    e.preventDefault();
+const gestionAjout = async (e) => {
+  e.preventDefault();
 
-    try {
-      await ajoutProduit(donnees);
-      onUpdated(); // recharger ou rafraîchir la liste
-      onHide(); // fermer la modal
-    } catch (error) {
-      console.error("Erreur ajoutEmploye :", error);
-      alert("Échec de l'ajout");
-    }
+  const donneesNettoyees = {
+    ...donnees,
+    quantite: parseInt(donnees.quantite, 10),
+    seuilMini: parseInt(donnees.seuilMini, 10),
+    prixUnitaire: parseFloat(donnees.prixUnitaire),
+    categorieId: parseInt(donnees.categorieId, 10)
   };
+
+  try {
+    await ajoutProduit(donneesNettoyees);
+    onUpdated(); // Rafraîchit la liste des produits
+    onHide(); // Ferme la modal
+  } catch (error) {
+    console.error("Erreur ajout Produit :", error);
+    alert("Échec de l'ajout");
+  }
+};
+
 
   const rechercheCategories = async (e) => {
     try {
@@ -40,15 +48,6 @@ const AjoutProduitModal = ({ show, onHide, onUpdated }) => {
     }
   };
 
-  const gestionOuvertureModal = (employe) => {
-    setSelectedEmploye(employe);
-    setShowModal(true);
-  };
-
-  const gestionFermetureModal = () => {
-    setShowModal(false);
-    setSelectedEmploye(null);
-  };
 
   useEffect(() => {
     rechercheCategories();
